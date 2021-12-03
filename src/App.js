@@ -12,19 +12,19 @@ function App() {
       id: 'e2',
       title: 'Rent',
       amount: 800,
-      date: new Date(2021, 2, 24),
+      date: new Date(2021, 7, 24),
     },
     {
       id: 'e3',
       title: 'Netflix',
       amount: 8.99,
-      date: new Date(2021, 2, 15),
+      date: new Date(2021, 11, 15),
     },
     {
       id: 'e4',
       title: 'Spotify',
       amount: 5.99,
-      date: new Date(2021, 2, 17),
+      date: new Date(2021, 3, 17),
     },
   ];
 
