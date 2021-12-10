@@ -1,9 +1,7 @@
+import './NewExpense.css';
+
 const NewExpense = () => {
-  return (
-    <div>
-      <form></form>
-    </div>
-  );
+  return <div className="new-expense"></div>;
 };
 
 export default NewExpense;
