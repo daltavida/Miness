@@ -1,20 +1,49 @@
+import { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+
+  const updateTitle = (e) => {
+    setEnteredTitle(e.target.value);
+  };
+  const updateAmount = (e) => {
+    setEnteredAmount(e.target.value);
+  };
+  const updateDate = (e) => {
+    setEnteredDate(e.target.value);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" />
+          <input type="text" onChange={updateTitle} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" />
+          <input type="number" min="0.01" step="0.01" onChange={updateAmount} />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input type="date" min="2019-01-01" max="2022-12-31" />
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2022-12-31"
+            onChange={updateDate}
+          />
         </div>
       </div>
       <div className="new-expense__action">
