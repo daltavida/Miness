@@ -1,7 +1,10 @@
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
+import { useState } from 'react';
 
 const NewExpense = (props) => {
+  const [isEditing, setEditing] = useState(false);
+
   const newExpenseData = (newExpense) => {
     const expenseData = {
       ...newExpense,
@@ -10,9 +13,16 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  const toggleEditing = () => {
+    setEditing((oldState) => {
+      return !oldState;
+    });
+  };
+
   return (
     <div className="new-expense">
-      <ExpenseForm onNewExpense={newExpenseData} />
+      {!isEditing && <button>Add new expense</button>}
+      {isEditing && <ExpenseForm onNewExpense={newExpenseData} />}
     </div>
   );
 };
