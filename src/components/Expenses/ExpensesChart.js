@@ -57,7 +57,7 @@ const ExpensesChart = (props) => {
     ChartDataPoints[expenseMonth].value += expense.amount;
   }
 
-  return <Chart />;
+  return <Chart dataPoints={ChartDataPoints} />;
 };
 
 export default ExpensesChart;
